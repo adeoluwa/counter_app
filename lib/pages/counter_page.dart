@@ -12,12 +12,19 @@ class CounterPage extends StatefulWidget {
 class _CounterPageState extends State<CounterPage> {
   // variable
   int _counter = 0;
+  int _decrease = 70;
 
   //methodv
   void _incrementCounter() {
     // setstate rebuild the widget
     setState(() {
       _counter++;
+    });
+  }
+
+  void _decreaseCounter() {
+    setState(() {
+      _decrease--;
     });
   }
 
@@ -41,7 +48,15 @@ class _CounterPageState extends State<CounterPage> {
             ElevatedButton(
               onPressed: _incrementCounter,
               child: Text("Increment!"),
-            )
+            ),
+
+            Text(
+              _decrease.toString(),
+              style: TextStyle(fontSize: 40),
+            ),
+
+            ElevatedButton(
+                onPressed: _decreaseCounter, child: Text("Decrease!"))
           ],
         ),
       ),
